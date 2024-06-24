@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            position: fixed;
+            right: 0;
+            top: 100px;
+        }
+        li{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        div{
+            height: 600px;
+            border: 1px solid gray;
+        }
+        /* 锚点作用：页面不同区域跳转，使用a链接
+        <a href="#id"> */
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#a">a</a></li>
+        <li><a href="#b">b</a></li>
+        <li><a href="#c">c</a></li>
+        <li><a href="#d">d</a></li>
+    </ul>
+    <div id="a">aaaaaaa</div>
+    <div id="b">bbbbbbb</div>
+    <div id="c">ccccccc</div>
+    <div id="d">ddddddd</div>
+</body>
+</html>

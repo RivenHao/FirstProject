@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <!-- <li v-for="item,index in dataList">
+                {{item.title}}--{{index}}
+                <div v-if="item.state==0">未付款</div>
+                <div v-if="item.state==1">待发货</div>
+                <div v-if="item.state==2">待收货</div>
+                <div v-if="item.state==3">已结束</div>
+            </li> -->
+            <li v-for="({title,state},index) of dataList">
+                {{title}}--{{index}}
+                <div v-if="state==0">未付款</div>
+                <div v-if="state==1">待发货</div>
+                <div v-if="state==2">待收货</div>
+                <div v-if="state==3">已结束</div>
+            </li>
+            <template v-for="({title,state},index) of dataList">
+                <li v-if="state===current">
+                    {{title}}--{{index}}
+                </li>
+            </template>
+        </ul>
+    </div>
+    <script>
+        // var {title,state} = {title:'手机',state:0}  v-for支持解构
+
+        // in===of
+        // 支持解构
+        // 小括号
+        // 支持对象遍历
+        var obj = {
+            data() {
+                return {
+                    current:1,
+                    dataList:[
+                        {
+                            title:'手机',
+                            state:0
+                        },
+                        {
+                            title:'衣服',
+                            state:1
+                        },
+                        {
+                            title:'aaa',
+                            state:2
+                        },
+                        {
+                            title:'bbb',
+                            state:3
+                        }
+                    ]
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

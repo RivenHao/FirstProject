@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="box">
+        <button @click="handleClick()">点击</button>
+        <div v-show="isShow">hhhhh</div>
+        <div v-if="isShow">111111</div>
+        <ul>
+            <li v-for="item,index in list" key="index">{{index}}--{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    name:"aaa",
+                    color:'red',
+                    isLogin:false,
+                    isShow:false,
+                    list:['aaa','bbb','ccc']
+                }
+            },
+            methods:{
+                handleClick(){
+                    console.log('click',this) // 实例化后的对象-app
+                    this.isShow = !this.isShow
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

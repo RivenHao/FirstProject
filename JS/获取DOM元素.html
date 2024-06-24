@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <div id="box"></div>
+    <ul>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+    </ul>
+    <input type="text" name="username">
+    <script>
+        console.log(document.documentElement);// 获取HTML
+        console.log(document.head)//获取head
+        console.log(document.body)//获取body
+        console.log(document.getElementById("box"))//获取id
+        var items = document.getElementsByClassName("item")//获取class 伪数组
+        for(var i = 0; i<items.length;i++){
+            items[i].innerHTML = i
+        }
+        var newitems = Array.from(items)
+        console.log(items)// 伪
+        console.log(newitems)// 真
+        var items2 = document.getElementsByTagName("li")// 获取标签
+        console.log(items2)
+        var item = document.getElementsByName("username")// 获取name
+        console.log(item[0])
+        item[0].value='zs'
+        // querySelector 通过选择器，返回第一个对象
+        // querySelectorAll 返回所有
+        var item = document.querySelector("#box")
+        var items = document.querySelectorAll(".item") 
+        console.log(item)
+        console.log(items)
+    </script>
+ </body>
+ </html>

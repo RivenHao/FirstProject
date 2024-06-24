@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="box">
+        <!-- 冒泡来的不会触发，事件源才会触发 -->
+        <ul @click.self="handleULClick()">
+            <!-- 阻止事件冒泡 -->
+            <li  @click.stop="handleClick">111</li>
+            <li  @click="handleClick">222</li>
+        </ul>
+        <!-- 阻止默认事件 -->
+        <form action="" @submit.prevent = "handleSubmit">
+            <button type="submit">submit</button>
+        </form>
+        <button @click.once="handleStar">once</button>
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    count:0,
+                    dataList:['111','222','333']
+                }
+            },
+            methods:{
+                handleULClick(){
+                    console.log('ul')
+                },
+                handleClick(){
+                    console.log('111')
+                },
+                handleSubmit(){
+                    console.log('222')
+                },
+                handleStar(){
+                    console.log('once')
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html> 

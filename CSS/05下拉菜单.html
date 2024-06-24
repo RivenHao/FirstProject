@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 300px;
+
+        }
+        .box .item{
+            float: left;
+            list-style: none;
+            background-color: blue;
+            color: aliceblue;
+            width: 148px;
+            border: 1px solid whitesmoke;
+            text-align: center;
+            line-height: 30px;
+        }
+        .item:hover{
+            background-color: lightblue;
+        }
+        .item>ul{
+            display: none;
+            background-color: aliceblue;
+            color: black;
+            list-style: none;
+            width: 148px;
+            border: 1px solid whitesmoke;
+        }
+        .item:hover ul {
+            display: block;
+        }
+        .item ul li:hover{
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul class="box">
+            <li class="item">AAA
+                <ul>
+                    <li>aaa1</li>
+                    <li>aaa2</li>
+                    <li>aaa3</li>
+                </ul>
+            </li>
+            <li class="item">BBB
+                <ul>
+                    <li>bbb1</li>
+                    <li>bbb2</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div>1111111111111</div>
+</body>
+</html>

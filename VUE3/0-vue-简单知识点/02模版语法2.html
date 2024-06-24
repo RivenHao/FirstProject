@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div :class="color">111111111</div>
+        <div :class="isLogin?'red':'yellow'">222222222</div>
+        <img v-bind="imgobj">
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    name:"aaa",
+                    color:'red',
+                    isLogin:false,
+                    imgobj:{
+                        src:'http://www.w3.org/2000/svg',
+                        winth:200,
+                        height:200
+                    }
+                }
+            },
+        }
+        Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

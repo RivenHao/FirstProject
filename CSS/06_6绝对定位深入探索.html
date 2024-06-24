@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            position: relative;
+            /* 简单设置z-index父子层级关系会失效 */
+            /* z-index: 100; */
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            /* 给子盒子z-index设置为负数就行 */
+            /* z-index: -1; */
+        }
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            /* 兄弟可以生效 */
+            z-index: 100;
+        }
+        .box4{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            background: red;
+            /* 行内元素变为块元素：
+            1、dispaly
+            2、绝对定位
+            3、float */
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        父
+        <div class="box2">
+            子
+        </div>
+    </div>
+    <div class="box3">兄弟</div>
+    <div class="box4">兄弟</div>
+    <span>hhhhhhhh</span>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+        }
+        .item1{
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class ="item1 item2 item3" style="background-color: red;"></div>
+    <script>
+        // 行内样式
+        console.log(box.style.width)// 获取不到外面的
+        console.log(box.style["background-color"])
+        console.log(box.style.backgroundColor)// 驼峰
+        box.style.width="100px"
+        // 内部外部行内样式，只能获取，不能赋值
+        var obox = document.getElementById("box")
+        var res = getComputedStyle(obox).width// 标准方法
+        console.log(res)
+        box.className = "item1 item2" // class类名
+        // classList属性
+        console.log(box.classList)
+        box.classList.add("item3")
+        box.classList.remove("item2")
+        //切换
+        box.classList.toggle("item")// 无-有互相切换
+    </script>
+</body>
+</html>

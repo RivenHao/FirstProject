@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    
+    <div id="box">
+        <button @click="handleClick">change</button>
+        <ul>
+            <li v-for="(item,index) of dataList" :key="item">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    current:1,
+                    dataList:['111','222','333']
+                }
+            },
+            methods:{
+                handleClick(){
+                    console.log('click')
+                    this.dataList = this.dataList.map(item=>"kerwin")
+
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

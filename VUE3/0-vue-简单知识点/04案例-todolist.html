@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="box">
+        <input type="text" name="" id="" v-model.lazy="info" @keyup.enter="handleKeyup">
+        <!-- 按键修饰符 -->
+        <input type="button" name="add" @click="handleClickAdd()" value="add" >
+        <ul>
+            <li v-for="item, index in list">
+                {{item}}
+                <input type="button" name="del" value="del" @click="handleClickDel(index)">
+            </li>
+        </ul>
+        <div v-show = "list.length==0">暂无事项</div>
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    info:'',
+                    list:['11','22']
+                }
+            },
+            methods:{
+                handleClickAdd(){
+                    this.list.push(this.info)
+                },
+                handleClickDel(index){
+                    this.list.splice(index,1)
+                },
+                handleKeyup(){
+                this.handleClickAdd()
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

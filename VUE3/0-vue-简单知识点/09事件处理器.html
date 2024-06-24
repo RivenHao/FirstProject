@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="box">
+        {{count}}
+        <!-- 内联表达式 -->
+        <button @click="count++">add</button>
+        <button @click="count--">del</button>
+        <!-- 函数调用可有参数 -->
+        <button @click="handleAdd()">add1</button>
+        <!-- 方法事件处理器无参数默认携带evt -->
+        <button @click="handleAdd2">add2</button>
+        <ul @click="handleULClick()">
+            <li  @click="handleClick(1,2,3,$event)">111</li>
+            <li  @click="(evt)=>handleClick2(1,2,3,evt)">222</li>
+        </ul>
+
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    count:0,
+                    dataList:['111','222','333']
+                }
+            },
+            methods:{
+                handleAdd(){
+                    this.count++
+                },
+                handleAdd2(evt){
+                    console.log(evt.target)
+                    this.count++
+                },
+                handleULClick(){
+                    console.log('ul')
+                },
+                handleClick(a,b,c,evt){
+                    console.log(a,b,c,evt)
+                },
+                handleClick2(a,b,c,evt){
+                    console.log(a,b,c,evt)
+                    evt.stopPropagation()
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

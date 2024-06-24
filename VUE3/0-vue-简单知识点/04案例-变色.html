@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li v-for="item, index in list" :class="current===index?'active':''" @click="handleClick(index)">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    current:0,
+                    list:['11','22','33','44','55']
+                }
+            },
+            methods:{
+                handleClick(index){
+                    this.current = index
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

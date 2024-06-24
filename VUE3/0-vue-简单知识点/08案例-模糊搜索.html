@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    
+    <div id="box">
+        <input type="text" name="" id="" v-model="info" @input="handleInput">
+        <!-- 使用v-if和数组的includes方法 -->
+        <!-- <ul>
+            <template v-for="(item,index) of dataList" :key="item">
+                <li v-if="item.includes(info)">
+                    {{item}}
+                </li>
+            </template>
+        </ul> -->
+        <!-- 使用filter方法-->
+        <ul>
+            <li v-for="(item,index) of test()" :key="item">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    info:'',
+                    dataList:['aaa','bbb','ccc','abc','aac','bbc','aab','cca']
+                }
+            },
+            methods:{
+                // 一次性
+                // handleInput(){
+                //     console.log(this.info)
+                //     this.dataList = this.dataList.filter(item=>item.includes(this.info))
+                // }
+                test(){
+                    return this.dataList.filter(item=>item.includes(this.info))
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

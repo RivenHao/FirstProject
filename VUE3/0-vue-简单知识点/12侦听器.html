@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <input type="text" name="" id="" v-model="info">
+        <ul>
+            <li v-for="(item,index) of dataList" :key="item">
+                {{item}}
+            </li>
+        </ul>
+        <input type="text" name="" id="" v-model="mytext">
+        <select name="" id="" v-model="obj.year">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+        </select>
+        <select name="" id="" v-model="obj.month">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <select name="" id="" v-model="obj.day">
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+        </select>
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    mytext:'',
+                    info:'',
+                    dataList:['aaa','bbb','ccc','abc','aac','bbc','aab','cca'],
+                    bakList:['aaa','bbb','ccc','abc','aac','bbc','aab','cca'], // 备份
+                    obj:{
+                        year:2020,
+                        month:2,
+                        day:20
+                    }
+                }
+            },
+            // 侦听的和data的一样
+            watch:{
+                info(value,oldvalue){
+                    this.dataList = this.bakList.filter(item=>item.includes(this.info))
+                },
+                mytext:'afnc', // 触发函数
+                'obj.year':'afnc', // 对象触发函数
+                obj:{
+                    handler(value){ // 对象发生变化触发函数
+                        console.log(value)
+                    },
+                    deep:true, // 复杂对象进行深度监听
+                    immediate:true // 监听后立刻
+                }
+            },
+            methods:{
+                afnc(value){
+                    console.log(value)
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html> 

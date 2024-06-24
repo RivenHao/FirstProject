@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            /* white-space: pre-line; */
+            /*  pre 显示空格，回车，不换行 
+                pre-wrap 显示空格，回车，换行
+                pre-line 显示回车，不显示空格，换行
+                nowrap 不换行
+            */
+            /* overflow: hidden; 溢出隐藏 */
+            /* overflow: visible; 显示溢出*/
+            /* overflow: scroll; 滚动条 */
+            /* overflow: auto; 自动 */
+            /* overflow: inherit; 继承父元素效果 */
+            /* overflow-x: auto; x轴设置 */
+            /* overflow-y: auto; y轴设置 */
+
+            /* 显示省略号 */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /*  ellipsis 省略号
+                clip 默认没有省略号
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    </div>
+    <pre>
+        预格式化文本-保留空格 tab 回车
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </pre>
+    <p>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </p>
+</body>
+</html>

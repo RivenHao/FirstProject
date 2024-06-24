@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <!-- 提取首字母 -->
+        <!-- 欢迎{{myname.substring(0,1).toUpperCase()+myname.substring(1)}} -->
+        <!-- 计算属性 -->
+        {{myComputedName}}
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    myname:'zs'
+                }
+            },
+            // 计算属性结果会缓存
+            computed:{
+                myComputedName(){
+                    return this.myname.substring(0,1).toUpperCase()+this.myname.substring(1)
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html> 

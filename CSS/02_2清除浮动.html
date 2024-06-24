@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            float: left;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: bisque;
+        }
+        /* 浮动后高度塌陷 */
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            /* clear: left; */
+        }
+        .container{
+            /* height: 100px; */
+            overflow: hidden;
+        }
+        /* 
+        1. 写固定高度 包裹浮动的父元素添加固定高度
+        2. 浮动之后元素添加clear：left/right/both
+        3. 浮动后的加个盒子，并添加clear属性
+        4. 给父盒子添加overflow:hidden触发BFC，让浮动元素计算高度
+        */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <!-- <div style="clear: both;"></div> -->
+    </div>
+    <div class="box3"></div>
+</body>
+</html>

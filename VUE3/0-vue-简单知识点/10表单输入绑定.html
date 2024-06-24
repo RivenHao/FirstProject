@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div>
+            {{mytext}}
+            <textarea v-model="mytext" cols="30" rows="10"></textarea>
+            <input type="checkbox" v-model="isChecked">记住
+            <button>登录</button>
+        </div>
+        <div>
+            <input type="checkbox" v-model="pelist" value="篮球">篮球
+            <input type="checkbox" v-model="pelist" value="足球">足球
+            <input type="checkbox" v-model="pelist" value="排球">排球
+            <button>提交</button>
+        </div>
+        <div>
+            {{check}}
+            <input type="radio" v-model="check" value="篮球">篮球
+            <input type="radio" v-model="check" value="足球">足球
+            <input type="radio" v-model="check" value="排球">排球
+            <button>提交</button>
+        </div>
+        <div>
+            {{selected}}
+            <select v-model="selected">
+                <option value="aaa">aaa</option>
+                <option value="bbb">bbb</option>
+                <option value="ccc">ccc</option>
+                <option value="ddd">ddd</option>
+            </select>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    mytext:" ",
+                    isChecked:true,
+                    pelist:[],
+                    check:'',
+                    selected:''
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

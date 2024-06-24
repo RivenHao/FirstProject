@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .aaa{
+            border: 1px solid yellow;
+        }
+        .bbb{
+            width: 100px;
+        }
+        .ccc{
+            height: 100px;
+        }
+        .ddd{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div :style="{background:'red'}">zqsl</div>
+        <div :style="{backgroundColor:'red'}">zqsl</div>
+        <div :style="{'background-color':'red'}">zqsl</div>
+        <div :style="style">zqsl</div>
+        <div :style="[styleobj1, styleobj2]">zqsl</div>
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    style:{
+                        backgroundColor:'yellow',
+                        'font-size':'20px'
+                    },
+                    styleobj1:{
+                        backgroundColor:'yellow'
+                    },
+                    styleobj2:{
+                        'font-size':'20px'
+                    }
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

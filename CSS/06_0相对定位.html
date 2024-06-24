@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* position
+        static      默认
+        absolute    绝对定位，脱离文档流，有父元素且有定位则相对于父元素，若没有则相对浏览器进行定位。
+        relative    相对定位，不脱离文档流，相对于自己的初始位置。
+        fixed       固定定位，脱离文档流，相对于浏览器
+        sticky      粘性定位，吸顶效果
+        z-index     堆叠顺序，值越大则越上面，可设置负值
+        浮动与定位区别在于，绝对定位脱离文档流后会遮盖其他，浮动会环绕
+        */
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        .box1{
+            background: red;
+        }
+        .box2{
+            background: antiquewhite;
+            position: relative;
+            top: -100px;
+            left: 100px;
+        }
+        .box3{
+            background: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>

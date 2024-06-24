@@ -1,0 +1,29 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <div id="box">hello</div>
+    <input type="text" name="username" id="username">
+    <input type="checkbox" checked id="rember">
+    <script>
+        /*
+            元素原生属性
+            自定义属性
+        */
+        box.innerHTML="222"
+        username.type = "password"
+        rember.checked = false
+        // 自定义属性3个方法
+        box.setAttribute("hhh","111")
+        console.log(box.getAttribute("hhh"))
+        box.removeAttribute("hhh")
+        if (rember.checked){
+            username.type="text"
+        }
+    </script>
+ </body>
+ </html>

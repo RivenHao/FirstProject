@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        {{mytext}}
+        <!-- @change lazy失去焦点才改变 -->
+        <input type="text" v-model.lazy="mytext">
+        <!-- 原生为字符串， 转为数字类型-->
+        <input type="text" v-model.number="mynumber">
+        <!-- 去掉两端空格 -->
+        <input type="text" v-model.trim="username">
+    </div>
+    <script>
+        var obj = {
+            data() {
+                return {
+                    mytext:'',
+                    mynumber:0,
+                    username:''
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

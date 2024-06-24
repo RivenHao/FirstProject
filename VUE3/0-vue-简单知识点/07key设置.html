@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li v-for="({id,title},index) of dataList" :key="id">
+                {{title}}--{{id}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 就地更新
+        // 虚拟DOM
+        // key跟踪每个节点，不依赖索引的更新策略，key值设置为对象内部的唯一id，即使顺序改变也会重新排序而不会更新
+        var obj = {
+            data() {
+                return {
+                    current:1,
+                    dataList:[
+                        {
+                            id:1,
+                            title:'手机'
+                        },
+                        {
+                            id:2,
+                            title:'衣服'
+                        },
+                        {
+                            id:3,
+                            title:'aaa'
+                        },
+                        {
+                            id:4,
+                            title:'bbb'
+                        }
+                    ]
+                }
+            }
+        }
+        var app = Vue.createApp(obj).mount('#box')
+    </script>
+</body>
+</html>

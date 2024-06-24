@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 通配符选择器 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 标签选择器 */
+        div{
+            width: 300px;
+            height: 300px;
+        }
+        /* 类选择器 */
+        .box1{
+            background-color: bisque;
+        }
+        /* id选择器 */
+        #box2{
+            background-color: yellow;
+        }
+        /* 群组选择器 */
+        p,h1,span{
+            color: red;
+        }
+        /* 后代选择器 */
+        #box2 ul li{
+            color: aqua;
+        }
+        /* 伪类选择器----超链接初始状态 */
+        a:link{ 
+            color: aqua;
+        }
+        /* 超链接被访问后状态 */
+        a:visited{
+            color: blue;
+        }
+        /* 超链接鼠标悬停状态 */
+        a:hover{
+            color: red;
+        }
+        /* 超链接激活状态 */
+        a:active{
+            color: blueviolet;
+        }
+        /* 选择器权重 
+        ！important 10000
+        内联样式     1000
+        包含选择符   权重相加
+        id          100
+        类          10
+        元素        1
+        权重相同后面覆盖前面的，
+        */
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <a href="www.baidu.com">百度</a>
+        aaa
+        <h1>aaa</h1>
+        <p>aaa</p>
+        <span>aaa</span>
+    </div>
+    <div id="box2">
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+    </div>
+</body>
+</html>
